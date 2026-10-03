@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="description" content="James Bryan Prado: business operations, CRM automation and digital marketing specialist based in Cebu City, Philippines.">
+<link rel="icon" href="images/planet.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>James Bryan Prado | Virtual assistant and digital marketing</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&family=Livvic:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#f6ead2;--surface:#fffaf0;--line:#e0d0ad;--text:#0b1426;--muted:#4d566b;
+  --accent:#b8391a;--teal:#1f6f66;--coral:#f2603f;--mustard:#f5b12e;--navy:#0b1426;--cream:#f6ead2;
+  --shadow:0 18px 40px rgba(11,20,38,.14);
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0b1426;--surface:#16233f;--line:#2a3c63;--text:#f6ead2;--muted:#a9b4c8;--accent:#f5b12e;--teal:#4fb3a3;--shadow:0 18px 40px rgba(0,0,0,.45);}}
+:root[data-theme="dark"]{
+  --bg:#0b1426;--surface:#16233f;--line:#2a3c63;--text:#f6ead2;--muted:#a9b4c8;--accent:#f5b12e;--teal:#4fb3a3;--shadow:0 18px 40px rgba(0,0,0,.45);}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Livvic',system-ui,Arial,sans-serif;font-size:1.0625rem;line-height:1.6}
+h1,h2,h3{font-family:'Space Grotesk',system-ui,Arial,sans-serif;line-height:1.08;letter-spacing:-.02em;margin:0}
+h2{font-size:clamp(1.9rem,4.2vw,3rem)}
+h3{font-size:1.25rem;letter-spacing:-.01em;line-height:1.25}
+p{margin:0}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit;cursor:pointer}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--mustard);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+.lede{color:var(--muted);max-width:60ch;margin-top:.9rem}
+.block{padding:4.5rem 0}
+.block + .block{border-top:1px solid var(--line)}
+
+/* motion layer */
+#space{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+header.top,main,footer{position:relative;z-index:1}
+header.top{position:sticky;z-index:20}
+.progress{position:fixed;left:0;top:0;height:4px;width:0;background:linear-gradient(90deg,var(--coral),var(--mustard));z-index:30}
+.rv{opacity:0;transform:translateY(34px) scale(.98);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.rv.left{transform:translateX(-46px)}.rv.right{transform:translateX(46px)}.rv.zoom{transform:scale(.86)}
+.rv.in{opacity:1;transform:none}
+.tilt{transition:transform .18s ease-out,box-shadow .18s;will-change:transform}
+.tilt:hover{box-shadow:var(--shadow)}
+.ticker{background:var(--coral);color:var(--navy);overflow:hidden;white-space:nowrap;padding:.8rem 0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.15rem;transform:rotate(-1.2deg) scale(1.02);position:relative;z-index:2}
+.ticker div{display:inline-block;will-change:transform}
+.ticker span{margin:0 1.1rem}
+.ticker i{font-style:normal;color:#fff3d6}
+.rocket{position:fixed;right:10px;top:90px;z-index:25;width:44px;height:64px;background:none;border:0;padding:0;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.rocket svg{width:100%;height:100%;filter:drop-shadow(0 4px 10px rgba(0,0,0,.35))}
+.rocket .flame{transform-origin:22px 48px;animation:flame .18s infinite alternate}
+@keyframes flame{to{transform:scaleY(1.35)}}
+.rocket.launch{transition:top .9s cubic-bezier(.6,0,.3,1),transform .3s}
+.pop{animation:pop .5s cubic-bezier(.2,.8,.2,1) both}
+@keyframes pop{from{opacity:0;transform:translateY(22px) scale(.94)}}
+.case > *{animation:pop .45s cubic-bezier(.2,.8,.2,1) both}
+.case > *:nth-child(2){animation-delay:.08s}
+.timeline div{position:relative}
+.timeline div::after{content:"";position:absolute;left:0;top:-4px;height:4px;width:100%;background:var(--bg);transform-origin:right;transition:transform 1s ease .2s}
+.timeline div.in::after,.timeline div:not(.rv)::after{transform:scaleX(0)}
+.btn{transition:transform .15s,background .15s}
+.btn:active{transform:scale(.96)}
+.menu button{transition:background .2s,color .2s}
+@media (max-width:760px){.rocket{width:32px;height:46px;right:4px}.hero .wrap{padding-top:6.5rem!important}}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.rocket .flame,.orbit,.orbit2,.float{animation:none!important}}
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--navy);color:var(--cream);border-bottom:1px solid #2a3c63}
+.top .wrap{display:flex;align-items:center;gap:1rem;min-height:64px}
+.brand{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.15rem;background:none;border:0;color:var(--cream);display:flex;align-items:center;gap:.55rem;padding:.4rem 0}
+.brand img{width:30px;height:30px}
+.menu{display:flex;gap:.25rem;margin-left:auto}
+.menu button{background:none;border:0;color:#cfd6e4;padding:.55rem .9rem;border-radius:999px;font-weight:600;font-size:.98rem}
+.menu button:hover{color:#fff}
+.menu button[aria-current="page"]{background:var(--coral);color:var(--navy)}
+.icon-btn{background:none;border:1px solid #2a3c63;color:var(--cream);width:42px;height:42px;border-radius:50%;display:grid;place-items:center;flex:none}
+.burger{display:none}
+@media (max-width:760px){
+  .burger{display:grid;margin-left:auto}
+  .menu{display:none;position:absolute;left:0;right:0;top:100%;background:var(--navy);flex-direction:column;padding:.6rem 1.25rem 1rem;border-bottom:1px solid #2a3c63;margin:0}
+  .menu.open{display:flex}
+  .menu button{text-align:left;padding:.8rem 1rem}
+}
+
+/* views */
+main{overflow-x:clip}
+.view{display:none}
+.view.on{display:block}
+
+/* hero */
+.hero{position:relative;background:var(--navy);color:var(--cream);overflow:hidden}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx,70%) var(--my,40%),rgba(245,177,46,.16),transparent 70%);pointer-events:none}
+.hero h1 span{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.hero h1 span:nth-child(2){animation-delay:.12s}
+.hero .say{animation:rise .9s .3s cubic-bezier(.2,.8,.2,1) both}
+.hero .cta{animation:rise .9s .45s cubic-bezier(.2,.8,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(40px)}}
+.hint{font-size:.9rem;color:#a9b4c8;margin-top:1.4rem}
+.orbit,.orbit2{position:absolute;left:50%;bottom:calc(50% - 14%);width:0;height:0;animation:spin 14s linear infinite}
+.orbit2{animation-duration:9s;animation-direction:reverse}
+.orbit img{position:absolute;width:64px;height:64px;left:-32px;top:-32px;transform:translateX(min(200px,48vw)) rotate(0);animation:counter 14s linear infinite;max-width:none}
+.orbit2 i{position:absolute;width:16px;height:16px;border-radius:50%;background:var(--mustard);left:-8px;top:-8px;transform:translateX(min(165px,40vw));box-shadow:0 0 14px var(--mustard)}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes counter{from{transform:translateX(min(200px,48vw)) rotate(0)}to{transform:translateX(min(200px,48vw)) rotate(-360deg)}}
+.float{animation:float 5s ease-in-out infinite alternate}
+@keyframes float{to{transform:translateY(-12px)}}
+.stripes i{animation:slide 1s cubic-bezier(.2,.8,.2,1) both;transform-origin:left}
+.stripes i:nth-child(2){animation-delay:.1s}.stripes i:nth-child(3){animation-delay:.2s}.stripes i:nth-child(4){animation-delay:.3s}
+@keyframes slide{from{transform:scaleX(0)}}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.25fr .75fr;gap:2rem;align-items:end;padding-top:7rem}
+.hero h1{font-size:clamp(2.5rem,7vw,5.2rem);font-weight:700;letter-spacing:-.045em;line-height:.95}
+.hero h1 span{display:block;white-space:nowrap}
+.hero .say{font-size:clamp(1.1rem,2vw,1.4rem);max-width:34ch;margin-top:1.4rem;color:#e6ddc8}
+.hero-text{padding-bottom:4.5rem}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.4rem;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid transparent;background:var(--coral);color:var(--navy)}
+.btn:hover{background:var(--mustard)}
+.btn.ghost{background:transparent;border-color:currentColor;color:inherit}
+.btn.ghost:hover{background:rgba(245,177,46,.16)}
+.me{position:relative;justify-self:center;width:min(340px,80%);aspect-ratio:2/3}
+.me::before{content:"";position:absolute;left:-8%;right:-8%;bottom:0;aspect-ratio:1;border-radius:50%;background:var(--coral)}
+.me > img{position:relative;width:100%;height:100%;object-fit:contain;object-position:bottom}
+.stripes{position:absolute;left:0;top:1rem;width:min(38vw,420px);display:grid;gap:8px;pointer-events:none}
+.stripes i{height:10px;border-radius:0 10px 10px 0}
+.stripes i:nth-child(1){background:var(--coral);width:100%}
+.stripes i:nth-child(2){background:#a8321a;width:82%}
+.stripes i:nth-child(3){background:var(--mustard);width:64%}
+.stripes i:nth-child(4){background:#4fb3a3;width:46%}
+@media (max-width:760px){.hero .wrap{grid-template-columns:1fr;padding-top:5rem}.hero-text{padding-bottom:1rem}.me{width:220px}}
+
+/* numbers */
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--surface)}
+.nums div{padding:1.5rem 1.4rem;border-left:1px solid var(--line)}
+.nums div:first-child{border-left:0}
+.nums b{display:block;font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,4.5vw,3.2rem);line-height:1;letter-spacing:-.03em;color:var(--accent);font-variant-numeric:tabular-nums}
+.nums span{color:var(--muted);font-size:.95rem;display:block;margin-top:.45rem;line-height:1.35}
+@media (max-width:760px){.nums{grid-template-columns:1fr 1fr}.nums div:nth-child(3){border-left:0}.nums div:nth-child(n+3){border-top:1px solid var(--line)}}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+
+/* accordion */
+.acc{margin-top:2rem;border-top:1px solid var(--line)}
+.acc details{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:1rem;padding:1.2rem 0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(1.1rem,2.2vw,1.45rem)}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+";margin-left:auto;font-size:1.6rem;font-weight:400;color:var(--accent);transition:transform .2s}
+.acc details[open] summary::after{transform:rotate(45deg)}
+.acc ul{margin:0 0 1.4rem;padding-left:1.2rem;color:var(--muted);max-width:70ch}
+.acc li{margin:.35rem 0}
+
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem}
+.timeline div{border-top:4px solid var(--coral);padding-top:1rem}
+.timeline div:nth-child(2){border-color:var(--teal)}
+.timeline div:nth-child(3){border-color:var(--mustard)}
+.timeline b{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;display:block}
+.timeline p{color:var(--muted);font-size:.98rem}
+@media (max-width:760px){.timeline{grid-template-columns:1fr}}
+.logos{margin-top:2rem;border-radius:18px;background:var(--navy);padding:1.2rem}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:2rem}
+.svc article{background:var(--surface);padding:1.6rem}
+.svc img{width:44px;height:44px;margin-bottom:.9rem}
+.svc p{color:var(--muted);font-size:.98rem;margin-top:.5rem}
+@media (max-width:900px){.svc{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.svc{grid-template-columns:1fr}}
+
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.6rem}
+.chips button{background:var(--surface);border:1px solid var(--line);padding:.5rem 1rem;border-radius:999px;font-weight:600;font-size:.95rem}
+.chips button[aria-selected="true"],.chips button[aria-pressed="true"]{background:var(--text);color:var(--bg);border-color:var(--text)}
+.case{display:grid;grid-template-columns:1.25fr 1fr;gap:2rem;margin-top:1.6rem;align-items:start}
+.shot{border:0;padding:0;background:#fff;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);width:100%}
+.shot img{width:100%}
+.note{font-size:.88rem;color:var(--muted);margin-top:.7rem}
+.case h3{font-size:1.5rem}
+.case .how{color:var(--muted);margin-top:.7rem}
+.stats{margin-top:1.2rem;border-top:1px solid var(--line)}
+.stats div{display:flex;gap:1rem;align-items:baseline;padding:.85rem 0;border-bottom:1px solid var(--line)}
+.stats b{font-family:'Space Grotesk',sans-serif;font-size:1.9rem;letter-spacing:-.02em;min-width:7.2rem;color:var(--accent);line-height:1}
+.stats span{font-size:.98rem}
+@media (max-width:760px){.case{grid-template-columns:1fr}}
+
+.gal{columns:4 220px;column-gap:1rem;margin-top:1.4rem}
+.gal button{display:block;width:100%;margin:0 0 1rem;padding:0;border:0;background:none;border-radius:12px;overflow:hidden;break-inside:avoid;box-shadow:var(--shadow)}
+.gal img{width:100%;transition:transform .25s}
+.gal button:hover img{transform:scale(1.03)}
+
+/* packages */
+.packs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem;align-items:stretch}
+.pack{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.7rem;display:flex;flex-direction:column;gap:.9rem}
+.pack.best{background:var(--navy);color:var(--cream);border-color:var(--navy)}
+.pack .tag{align-self:start;background:var(--mustard);color:var(--navy);font-weight:700;font-size:.82rem;padding:.2rem .7rem;border-radius:999px}
+.pack h3{font-size:1.5rem}
+.pack .price{font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:700;border:2px dashed currentColor;border-radius:10px;padding:.5rem .8rem;opacity:.75}
+.pack ul{margin:0;padding-left:1.1rem;flex:1}
+.pack li{margin:.3rem 0}
+.pack .btn{margin-top:.4rem}
+@media (max-width:860px){.packs{grid-template-columns:1fr}}
+.builder{display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;margin-top:2rem;align-items:start}
+.opts{display:grid;gap:.6rem}
+.opts label{display:flex;gap:.8rem;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.85rem 1rem;cursor:pointer;font-weight:600}
+.opts input{width:20px;height:20px;accent-color:var(--coral);flex:none}
+.opts label:has(input:checked){border-color:var(--coral);box-shadow:inset 0 0 0 1px var(--coral)}
+.sum{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.5rem;position:sticky;top:90px}
+.sum ul{padding-left:1.1rem;margin:.8rem 0 1.2rem;color:var(--muted);min-height:3rem}
+.sum .btn{width:100%}
+.sum .btn[aria-disabled="true"]{opacity:.45;pointer-events:none}
+@media (max-width:760px){.builder{grid-template-columns:1fr}.sum{position:static}}
+
+/* social */
+.dash{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.5rem}
+.tile b{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.2rem,5vw,3.4rem);letter-spacing:-.03em;line-height:1;display:block;color:var(--accent);font-variant-numeric:tabular-nums}
+.tile span{color:var(--muted);display:block;margin-top:.5rem}
+.tile.wide{grid-column:span 2}
+.bar{height:16px;border-radius:999px;background:var(--line);margin-top:1rem;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--coral);border-radius:999px;transition:width 1.2s cubic-bezier(.2,.7,.2,1)}
+.split{display:flex;gap:1.2rem;align-items:center}
+.donut{width:96px;height:96px;border-radius:50%;background:conic-gradient(var(--coral) 0 60%,var(--teal) 60% 100%);flex:none;display:grid;place-items:center}
+.donut::after{content:"";width:56px;height:56px;border-radius:50%;background:var(--surface)}
+@media (max-width:760px){.dash{grid-template-columns:1fr}.tile.wide{grid-column:auto}}
+.phones{display:flex;gap:1.4rem;margin-top:2rem;overflow-x:auto;padding:.4rem .2rem 1.4rem}
+.phones button{flex:none;width:230px;border:8px solid var(--navy);border-radius:32px;padding:0;overflow:hidden;background:#fff;box-shadow:var(--shadow)}
+.phones img{width:100%;height:430px;object-fit:cover;object-position:top}
+
+.acc summary small{display:block;font-family:'Livvic',sans-serif;font-weight:500;font-size:.95rem;color:var(--muted);margin-top:.2rem}
+.facts{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.4rem}
+.facts span{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:.3rem .9rem;font-size:.92rem;font-weight:600}
+.search{width:min(460px,100%);margin-top:1.4rem;padding:.8rem 1.1rem;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit}
+.tools{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.4rem;min-height:3rem}
+.tools span{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:.45rem .85rem;font-weight:600;font-size:.95rem;animation:pop .4s cubic-bezier(.2,.8,.2,1) both;transition:transform .15s,border-color .15s}
+.tools span:hover{transform:translateY(-3px) rotate(-1.5deg);border-color:var(--coral)}
+.socials{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem}
+.socials > *{display:block;text-align:left;text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:1.2rem 1.3rem;transition:transform .15s,border-color .15s}
+.socials a:hover,.socials button:hover{transform:translateY(-4px);border-color:var(--coral)}
+.socials b{display:block;font-family:'Space Grotesk',sans-serif;font-size:1.2rem}
+.socials span{color:var(--muted);font-size:.95rem;overflow-wrap:anywhere}
+@media (max-width:760px){.socials{grid-template-columns:1fr 1fr}}
+/* footer */
+footer{background:var(--navy);color:var(--cream);padding:4rem 0 3rem}
+footer h2{font-size:clamp(2.2rem,6vw,4.2rem);letter-spacing:-.04em}
+.contact{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem}
+footer small{display:block;margin-top:2.5rem;color:#8e99b0}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--mustard);color:var(--navy);font-weight:700;padding:.7rem 1.2rem;border-radius:999px;opacity:0;transition:.25s;pointer-events:none;z-index:40}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* lightbox */
+.lb{position:fixed;inset:0;background:rgba(5,9,18,.92);display:none;place-items:center;z-index:50;padding:calc(1rem + env(safe-area-inset-top,0px)) 1rem calc(1rem + env(safe-area-inset-bottom,0px))}
+.lb.on{display:grid}
+.lb img{max-height:86vh;max-width:100%;border-radius:10px;background:#fff}
+.lb p{color:#f6ead2;text-align:center;margin-top:.8rem;font-size:.95rem}
+.lb .x{position:absolute;right:1rem;top:calc(1rem + env(safe-area-inset-top,0px));background:var(--coral);color:var(--navy);border:0;width:44px;height:44px;border-radius:50%;font-size:1.4rem;font-weight:700}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<canvas id="space" aria-hidden="true"></canvas>
+<div class="progress" id="progress"></div>
+<button class="rocket" id="rocket" aria-label="Back to top"><svg viewBox="0 0 44 64" aria-hidden="true"><path class="flame" d="M15 46 Q22 66 29 46 Z" fill="#f5b12e"/><path d="M22 2 C34 14 34 34 30 46 H14 C10 34 10 14 22 2 Z" fill="#f6ead2"/><path d="M22 2 C28 8 31 16 31.5 22 H12.5 C13 16 16 8 22 2 Z" fill="#f2603f"/><circle cx="22" cy="28" r="5" fill="#0b1426"/><path d="M14 36 L4 50 L14 46 Z M30 36 L40 50 L30 46 Z" fill="#f2603f"/></svg></button>
+<header class="top">
+  <div class="wrap">
+    <button class="brand" data-go="home"><img data-img="planet" alt="">James Bryan Prado</button>
+    <button class="icon-btn burger" id="burger" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    <nav class="menu" id="menu" aria-label="Main">
+      <button data-go="home">Home</button>
+      <button data-go="services">Services</button>
+      <button data-go="savers">Savers Package</button>
+      <button data-go="social">Social Media</button>
+    </nav>
+    <button class="icon-btn" id="theme" aria-label="Switch between light and dark">&#9680;</button>
+  </div>
+</header>
+
+<main>
+<!-- ===== HOME PAGE: edit your intro, numbers, experience and education below ===== -->
+<section class="view" id="home">
+  <div class="hero">
+    <canvas id="stars" aria-hidden="true"></canvas>
+    <div class="stripes" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="wrap">
+      <div class="hero-text">
+        <h1><span>James Bryan</span><span>Prado</span></h1>
+        <p class="say">Business operations specialist and strategist. I run CRM systems, digital marketing and back-office operations for business owners who want their time back.</p>
+        <div class="cta">
+          <button class="btn" data-go="services">See my services</button>
+          <a class="btn ghost" href="mailto:JamesBryan.Prado@gmail.com" target="_blank" rel="noopener">Email me</a>
+        </div>
+        <p class="hint">Click anywhere in space to launch a shooting star.</p>
+      </div>
+      <div class="me"><div class="orbit" aria-hidden="true"><img data-img="planet" alt=""></div><div class="orbit2" aria-hidden="true"><i></i></div><img class="float" data-img="portrait" alt="James Bryan Prado"></div>
+    </div>
+  </div>
+
+  <div class="ticker" aria-hidden="true"><div id="ticker"></div></div>
+  <div class="wrap block">
+    <div class="nums">
+      <div><b data-count="6">6</b><span>years, nearly, of supporting business growth</span></div>
+      <div><b data-count="2" data-suffix="M">2M</b><span>views on a single organic video</span></div>
+      <div><b data-count="62" data-prefix="+" data-suffix="%">+62%</b><span>organic search clicks for a client in 3 months</span></div>
+      <div><b data-count="115" data-suffix="K+">115K+</b><span>search impressions in the same period</span></div>
+    </div>
+  </div>
+
+  <div class="wrap block two">
+    <div>
+      <h2>Nearly six years of keeping businesses running smoothly</h2>
+      <div class="facts"><span>Cebu City, Philippines</span><span>Bisaya</span><span>English</span><span>Tagalog</span></div>
+    </div>
+    <div>
+      <p>I am a Business Operations Specialist and Strategist with nearly 6 years of supporting business growth through efficient systems, digital operations and client-focused solutions.</p>
+      <p style="margin-top:1rem">I am known for streamlining workflows, managing key projects and delivering consistent, high-quality results. Most of my clients are US, Canadian and Australian business owners who want their work made easier and smarter without overspending.</p>
+    </div>
+  </div>
+
+  <div class="wrap block">
+    <h2>Work experience</h2>
+    <div class="acc">
+      <details open><summary><span>CRM and digital operations specialist<small>2025 to 2026</small></span></summary>
+        <ul><li>Managing CRM systems such as GoHighLevel and organizing lead pipelines.</li><li>Building workflow automations for lead nurturing, follow-ups and client communication.</li><li>Setting up SMS and email marketing campaigns for lead generation and customer engagement.</li><li>Generating and organizing leads from different marketing sources and importing them into CRM systems.</li><li>Managing backend business operations and improving workflow efficiency.</li><li>Executive and administrative support: scheduling, inbox management and reporting.</li><li>Digital marketing support: social media management, content coordination, blogging and newsletters.</li><li>Coordinating project workflows and helping businesses streamline operations for scalability.</li><li>Monitoring systems, automations and campaigns to keep daily operations smooth.</li></ul></details>
+      <details><summary><span>Digital operations specialist<small>Lee Wright Coaching, 2022 to 2025</small></span></summary>
+        <ul><li>Scheduling and managing client meetings.</li><li>Social media management and marketing on Instagram, Facebook and LinkedIn.</li><li>Email marketing: drip campaigns, newsletters, leads and inbox management.</li><li>Content creation and project management.</li><li>Property management and real estate.</li><li>Web development and design: landing pages, search engine optimization and blogs.</li><li>On-page and off-page SEO, branding visibility, Google Business management and ads.</li><li>Video editing for YouTube content and YouTube channel management.</li><li>Podcast editing, uploading and account management on Spotify and Apple.</li><li>Customer relationship management, inbound and outbound calls.</li><li>Event coordination on Meetup and Eventbrite.</li></ul></details>
+      <details><summary><span>Digital marketing manager and strategist<small>Health Care Australia, 2022 to 2023</small></span></summary>
+        <ul><li>Drip campaigns for Australian hospital and aged care facility clients, taking leads within New South Wales and Queensland.</li><li>Social media management and content creation for Instagram and Facebook.</li><li>Inbound and outbound calls and appointment setting of nurses with designated hospitals in New South Wales and Queensland.</li><li>Office setup of computers, plus hardware and software maintenance.</li><li>Deputy subject matter expert and administrator.</li><li>Data entry, data management and analysis.</li><li>Acting company treasurer, managing company money and salaries.</li><li>KPI reporting.</li></ul></details>
+      <details><summary><span>General virtual assistant<small>Outsourced Virtual, 2021 to 2022</small></span></summary>
+        <ul><li>Branding design for a new client.</li><li>Email management and marketing.</li><li>Setting up new social media marketing and pages.</li><li>Website development and design, and landing pages.</li><li>Scheduling meetings and inbox management.</li><li>Graphic design for events and covers.</li><li>Video and audio editing for reels and social media engagement.</li><li>Customer relationship management.</li><li>Course creation.</li></ul></details>
+      <details><summary><span>Project manager<small>Eighty 8 Interior Design, 2019 to 2021</small></span></summary>
+        <ul><li>Planning with the interior designers to develop project plans, timelines and project flow.</li><li>Coordinating with the construction team for effective communication and collaboration.</li><li>Monitoring and managing project budgets, expenses and resource allocation to prevent overspending.</li><li>Regular reports to the client on unit progress and estimated turnover.</li><li>Solving problems to avoid back jobs and keep the project on track.</li><li>Quality assurance so deliverables meet the best quality standards.</li></ul></details>
+    </div>
+  </div>
+
+  <div class="wrap block">
+    <h2>Education</h2>
+    <div class="timeline">
+      <div><b>Elementary</b><h3>Graduate</h3><p>Labangon Elementary School.</p></div>
+      <div><b>High school</b><h3>Graduate</h3><p>Don Sergio Osmeña Sr. Memorial High School. Cooking and computer tech course.</p></div>
+      <div><b>2010 to 2014</b><h3>Bachelor's degree, BSIT</h3><p>Asian College of Technology. Information Technology, four-year scholar (Pilot Section).</p></div>
+    </div>
+  </div>
+
+  <div class="wrap block">
+    <h2>Tools I work with</h2>
+    <p class="lede">Type to search, or pick a group.</p>
+    <input class="search" id="toolSearch" type="search" placeholder="Search tools, for example GoHighLevel" aria-label="Search tools">
+    <div class="chips" id="toolCats"></div>
+    <div class="tools" id="tools" aria-live="polite"></div>
+  </div>
+
+  <div class="wrap block">
+    <h2>Brands I have worked with</h2>
+    <p class="lede">Clients from the US and Australia since 2021: short-term, long-term, and the ones who keep coming back.</p>
+    <div class="logos"><img data-img="logos" alt="Client logos: Lee Wright Divorce Coach, Seasons, Marval Multi Services, Park Life Studio, WDI-Inspector, AZ Agency, floridalakefront.com, Lux Living South Florida, Arbella Collective, Coastal Florida Homes"></div>
+  </div>
+</section>
+
+<!-- ===== SERVICES PAGE ===== -->
+<section class="view" id="services">
+  <div class="wrap block">
+    <h2>Services</h2>
+    <p class="lede">Six areas I can take off your plate, on their own or combined.</p>
+    <div class="svc">
+      <article><img data-img="planet" alt=""><h3>Growth marketing and brand visibility</h3><p>End-to-end strategies that yielded 62% organic search click growth and 115K+ impressions through technical keyword frameworks.</p></article>
+      <article><img data-img="planet" alt=""><h3>Social media and ad operations</h3><p>Cross-channel social operations and ad campaigns for multiple clients, scaling reach, engagement and conversions.</p></article>
+      <article><img data-img="planet" alt=""><h3>Web development and technical SEO</h3><p>Hands-on HTML, CSS and JavaScript schema work to improve site architecture, Core Web Vitals and search visibility.</p></article>
+      <article><img data-img="planet" alt=""><h3>Content and video editing</h3><p>High-retention storytelling and editing: 2 million views on a single viral video and 500K+ views for client brands.</p></article>
+      <article><img data-img="planet" alt=""><h3>3D interior design and real estate operations</h3><p>3D spatial visualization and interior rendering, plus ground-level real estate work, including setting up a Cebu-based OPC.</p></article>
+      <article><img data-img="planet" alt=""><h3>Landing pages and web UI</h3><p>Functional, responsive interfaces built to turn passive search traffic into high-intent leads.</p></article>
+    </div>
+  </div>
+
+  <div class="wrap block">
+    <h2>Core expertise</h2>
+    <div class="acc">
+      <details open><summary>Digital operations and automations</summary><ul><li>Building automated workflows in GoHighLevel to nurture incoming leads.</li><li>Setting up multi-channel SMS and email marketing campaigns.</li><li>Streamlining complex backend business processes for operational efficiency.</li></ul></details>
+      <details><summary>Multi-niche business support</summary><ul><li>Managing executive schedules, calendar coordination and inbox organization.</li><li>Handling inbound and outbound calls for client inquiries and appointments.</li><li>Designing landing pages, web graphics and newsletters that keep the brand consistent.</li></ul></details>
+      <details><summary>Digital marketing and email</summary><ul><li>Designing targeted email newsletters and continuous drip campaigns.</li><li>Managing social media accounts across Facebook, Instagram and LinkedIn.</li><li>Optimizing web copy for higher search engine visibility.</li></ul></details>
+      <details><summary>Web and digital tech</summary><ul><li>Developing and designing high-converting websites, landing pages and blogs.</li><li>Building sales funnels with ClickFunnels, Kajabi and WordPress.</li><li>Optimizing website content for search engine visibility (SEO).</li></ul></details>
+      <details><summary>Multimedia and podcast management</summary><ul><li>Editing professional audio and video content for social media reels.</li><li>Managing podcast accounts on Spotify and Apple Podcasts.</li><li>Designing high-converting graphics and landing pages.</li></ul></details>
+    </div>
+  </div>
+
+  <div class="wrap block">
+    <h2>Results from one client</h2>
+    <p class="lede">A luxury South Florida real estate brand. Domains are redacted for client privacy.</p>
+    <div class="chips" id="caseTabs" role="tablist" aria-label="Case studies"></div>
+    <div class="case" id="casePanel" role="tabpanel"></div>
+  </div>
+
+  <div class="wrap block">
+    <h2>Work samples</h2>
+    <p class="lede">Select any piece to see it larger.</p>
+    <div class="chips" id="filters" aria-label="Filter samples"></div>
+    <div class="gal" id="gal"></div>
+  </div>
+</section>
+
+<!-- ===== SAVERS PACKAGE PAGE: change package names, prices and what is included here ===== -->
+<section class="view" id="savers">
+  <div class="wrap block">
+    <h2>Savers Package</h2>
+    <p class="lede">Bundle several services together and pay less than booking each one separately.</p>
+    <div class="packs">
+      <div class="pack"><h3>Starter Saver</h3><p class="price">Price: add yours</p><ul><li>Social media management and designs</li><li>Graphic design for posts and promos</li><li>Content scheduling</li></ul><button class="btn ghost" data-pack="Starter Saver">Ask about Starter Saver</button></div>
+      <div class="pack best"><span class="tag">Most complete for growth</span><h3>Growth Saver</h3><p class="price">Price: add yours</p><ul><li>Everything in Starter Saver</li><li>Technical SEO and schema markup</li><li>Short-form video editing</li><li>Email newsletters and opt-in forms</li></ul><button class="btn" data-pack="Growth Saver">Ask about Growth Saver</button></div>
+      <div class="pack"><h3>Full Operations Saver</h3><p class="price">Price: add yours</p><ul><li>Everything in Growth Saver</li><li>Landing pages and website updates</li><li>CRM automation and lead capture</li><li>Executive assistance</li></ul><button class="btn ghost" data-pack="Full Operations Saver">Ask about Full Operations Saver</button></div>
+    </div>
+  </div>
+  <div class="wrap block">
+    <h2>Build your own package</h2>
+    <p class="lede">Pick what you need and send the list to me in one email.</p>
+    <div class="builder">
+      <div class="opts" id="opts"></div>
+      <div class="sum" aria-live="polite">
+        <h3 id="sumTitle">Nothing picked yet</h3>
+        <ul id="sumList"></ul>
+        <a class="btn" id="sumBtn" aria-disabled="true" target="_blank" rel="noopener" href="mailto:JamesBryan.Prado@gmail.com">Email this package request</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOCIAL MEDIA PAGE: numbers and your profile links ===== -->
+<section class="view" id="social">
+  <div class="wrap block">
+    <h2>Social Media</h2>
+    <p class="lede">Scripted, edited and scheduled short-form content for one client account, grown from a flat starting line. All of it organic.</p>
+    <div class="dash">
+      <div class="tile"><b data-count="490.2" data-dec="1" data-suffix="K">490.2K</b><span>video views</span></div>
+      <div class="tile"><b data-count="1.3" data-dec="1" data-suffix="K">1.3K</b><span>net new followers</span></div>
+      <div class="tile"><b data-count="6" data-suffix="K">6K</b><span>direct shares</span></div>
+      <div class="tile wide"><b data-count="77" data-suffix="%">77%</b><span>of views came from the For You Page</span><div class="bar"><i data-w="77"></i></div></div>
+      <div class="tile"><div class="split"><div class="donut" role="img" aria-label="60 percent male, 40 percent female"></div><div><h3>60 / 40</h3><span>male to female audience, mostly ages 35 to 44 and older</span></div></div></div>
+      <div class="tile"><b data-count="9.9" data-dec="1" data-suffix="K">9.9K</b><span>likes</span></div>
+      <div class="tile"><b data-count="709">709</b><span>comments</span></div>
+      <div class="tile"><h3>See the analytics</h3><span>Screenshots from TikTok Studio, account redacted.</span><div class="chips"><button data-lb="shot5" data-cap="TikTok Studio overview, account redacted">Views</button><button data-lb="shot6" data-cap="TikTok Studio followers, account redacted">Followers</button></div></div>
+    </div>
+  </div>
+  <div class="wrap block">
+    <h2>Feeds I have managed and designed</h2>
+    <p class="lede">Select a feed to see it larger.</p>
+    <div class="phones">
+      <button data-lb="social1" data-cap="Instagram feed for a coaching client"><img data-img="social1" alt="Instagram feed for a coaching client"></button>
+      <button data-lb="social2" data-cap="Instagram feed for a lifestyle client"><img data-img="social2" alt="Instagram feed for a lifestyle client"></button>
+      <button data-lb="social3" data-cap="Instagram feed of health tips designs"><img data-img="social3" alt="Instagram feed of health tips designs"></button>
+    </div>
+  </div>
+  <div class="wrap block">
+    <h2>Find me online</h2>
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/james-bryan-prado-0b0517239/" target="_blank" rel="noopener"><b>LinkedIn</b><span>james-bryan-prado</span></a>
+      <a href="https://www.instagram.com/jamesbryan.prado/" target="_blank" rel="noopener"><b>Instagram</b><span>@jamesbryan.prado</span></a>
+      <a href="https://wa.me/639672255048" target="_blank" rel="noopener"><b>WhatsApp</b><span>+63 967 225 5048</span></a>
+      <div><b>Facebook</b><span>James Bryan Prado</span></div>
+      <button data-copy="live:.cid.ad062e7276424352"><b>Skype</b><span>Copy my Skype ID</span></button>
+      <a href="https://bio.site/Aeolus" target="_blank" rel="noopener"><b>All links</b><span>bio.site/Aeolus</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ===== CONTACT (shows on every page) ===== -->
+<footer>
+  <div class="wrap">
+    <h2>Let's work together</h2>
+    <div class="contact">
+      <a class="btn" href="mailto:JamesBryan.Prado@gmail.com" target="_blank" rel="noopener">JamesBryan.Prado@gmail.com</a>
+      <button class="btn ghost" id="copyPhone">+63 967 225 5048</button>
+      <a class="btn ghost" href="https://www.linkedin.com/in/james-bryan-prado-0b0517239/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://bio.site/Aeolus" target="_blank" rel="noopener">bio.site/Aeolus</a>
+    </div>
+    <small>James Bryan Prado. Business operations, CRM and digital marketing. Cebu City, Philippines.</small>
+  </div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer"><button class="x" id="lbx" aria-label="Close">&times;</button><div><img id="lbimg" alt=""><p id="lbcap"></p></div></div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* EDIT IMAGES: to change a picture, replace the file in the images folder and keep the same file name. */
+const IMG={
+ "portrait": "images/portrait.webp",
+ "planet": "images/planet.webp",
+ "logos": "images/logos.webp",
+ "shot3": "images/result-seo.webp",
+ "shot4": "images/result-search-growth.webp",
+ "shot5": "images/result-tiktok-views.webp",
+ "shot6": "images/result-tiktok-followers.webp",
+ "shot7": "images/result-leads.webp",
+ "social1": "images/social1.webp",
+ "social2": "images/social2.webp",
+ "social3": "images/social3.webp",
+ "web1": "images/web1.webp",
+ "web2": "images/web2.webp",
+ "web3": "images/web3.webp",
+ "design1": "images/design1.webp",
+ "design2": "images/design2.webp",
+ "design3": "images/design3.webp",
+ "design4": "images/design4.webp",
+ "design5": "images/design5.webp",
+ "design6": "images/design6.webp",
+ "promo1": "images/promo1.webp",
+ "promo2": "images/promo2.webp",
+ "promo3": "images/promo3.webp",
+ "promo5": "images/promo5.webp",
+ "email1": "images/email1.webp",
+ "email2": "images/email2.webp"
+};
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+$$('[data-img]').forEach(e=>{if(e.dataset.img!=='portrait'&&!e.closest('.top'))e.loading='lazy';e.src=IMG[e.dataset.img]});
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* navigation */
+const views=['home','services','savers','social'];
+function go(v,push){
+  if(!views.includes(v))v='home';
+  views.forEach(id=>$('#'+id).classList.toggle('on',id===v));
+  $$('.menu button').forEach(b=>b.dataset.go===v?b.setAttribute('aria-current','page'):b.removeAttribute('aria-current'));
+  $('#menu').classList.remove('open');$('#burger').setAttribute('aria-expanded','false');
+  if(push!==false){try{history.replaceState(null,'','#'+v)}catch(e){}}
+  window.scrollTo(0,0);setupMotion($('#'+v));
+  if(v==='home')sizeStars();
+}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(b)go(b.dataset.go)});
+$('#burger').onclick=()=>{const o=$('#menu').classList.toggle('open');$('#burger').setAttribute('aria-expanded',o)};
+
+/* theme */
+$('#theme').onclick=()=>{
+  const r=document.documentElement,cur=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+  const n=cur==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}
+};
+try{const t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}
+
+/* count-up, bars and scroll reveals */
+function countUp(el){
+  const end=+el.dataset.count,dec=+(el.dataset.dec||0),pre=el.dataset.prefix||'',suf=el.dataset.suffix||'';
+  const fmt=n=>pre+n.toFixed(dec)+suf;
+  if(reduce){el.textContent=fmt(end);return}
+  const t0=performance.now(),dur=1400;
+  (function step(t){const p=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-p,3);el.textContent=fmt(end*e);if(p<1)requestAnimationFrame(step)})(t0);
+}
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;const el=e.target;io.unobserve(el);
+  if(el.dataset.count)countUp(el);
+  else if(el.dataset.w)el.style.width=el.dataset.w+'%';
+  else{el.classList.add('in');setTimeout(()=>{el.classList.remove('rv','in','left','right','zoom');el.style.transitionDelay=''},1100+parseFloat(el.style.transitionDelay||0)*1000)}
+}),{threshold:.15,rootMargin:'0px 0px -6% 0px'});
+function setupMotion(root){
+  $$('[data-count]',root).forEach(el=>{io.unobserve(el);io.observe(el)});
+  $$('.bar i',root).forEach(el=>{el.style.width='0';io.unobserve(el);io.observe(el)});
+  if(reduce)return;
+  const groups=[['.block > h2, .block > div > h2',''],['.lede, .two p, .logos, .chips, .case, .gal, .phones, .sum',''],['.nums div','zoom'],['.svc article','zoom'],['.pack','zoom'],['.tile','zoom'],['.timeline div',''],['.acc details','left'],['.socials > *','zoom'],['.search, .tools',''],['.opts label','left']];
+  groups.forEach(([sel,kind])=>$$(sel,root).forEach(el=>{
+    const i=[...el.parentElement.children].indexOf(el);
+    el.classList.remove('in');el.classList.add('rv');if(kind)el.classList.add(kind);
+    el.style.transitionDelay=(Math.min(i,8)*0.08)+'s';io.unobserve(el);io.observe(el);
+  }));
+}
+
+/* hero starfield: depth, pointer parallax, scroll warp, shooting stars */
+const cv=$('#stars'),cx=cv.getContext('2d'),hero=$('.hero');let stars=[],shots=[],mx=0,my=0,warp=0;
+function sizeStars(){
+  const r=cv.getBoundingClientRect();if(!r.width)return;
+  const d=Math.min(2,devicePixelRatio||1);cv.width=r.width*d;cv.height=r.height*d;cx.setTransform(d,0,0,d,0,0);
+  const n=Math.round(r.width*r.height/3600);
+  stars=Array.from({length:n},()=>{const z=Math.random();return{x:Math.random()*r.width,y:Math.random()*r.height,z,s:z*1.8+.3,v:z*.22+.03,p:Math.random()*6.28,c:Math.random()<.12?'#f5b12e':Math.random()<.1?'#4fb3a3':'#f6ead2'}});
+  draw(0);
+}
+function shoot(x,y){shots.push({x,y,vx:-(7+Math.random()*4),vy:3+Math.random()*2,life:1})}
+function draw(t){
+  const w=cv.clientWidth,h=cv.clientHeight;cx.clearRect(0,0,w,h);
+  for(const s of stars){
+    if(!reduce){s.x-=s.v;if(s.x<0)s.x=w;s.y-=warp*s.z*.6;if(s.y<0)s.y+=h;if(s.y>h)s.y-=h}
+    const px=s.x-mx*s.z*40,py=s.y-my*s.z*26;
+    cx.globalAlpha=.4+.6*Math.abs(Math.sin(s.p+t/1300));cx.fillStyle=s.c;
+    if(Math.abs(warp)>1.5){cx.strokeStyle=s.c;cx.lineWidth=s.s;cx.beginPath();cx.moveTo(px,py);cx.lineTo(px,py+warp*s.z*2.2);cx.stroke()}
+    else{cx.beginPath();cx.arc(px,py,s.s,0,6.28);cx.fill()}
+  }
+  for(const o of shots){
+    const g=cx.createLinearGradient(o.x,o.y,o.x-o.vx*14,o.y-o.vy*14);g.addColorStop(0,'rgba(255,243,214,'+o.life+')');g.addColorStop(1,'rgba(245,177,46,0)');
+    cx.globalAlpha=1;cx.strokeStyle=g;cx.lineWidth=2.5;cx.beginPath();cx.moveTo(o.x,o.y);cx.lineTo(o.x-o.vx*14,o.y-o.vy*14);cx.stroke();
+    o.x+=o.vx;o.y+=o.vy;o.life-=.012;
+  }
+  shots=shots.filter(o=>o.life>0&&o.x>-200);
+  cx.globalAlpha=1;warp*=.9;
+}
+let lastShot=0;
+function loop(t){
+  if($('#home').classList.contains('on')&&!document.hidden){
+    if(t-lastShot>4200){lastShot=t;shoot(cv.clientWidth*(.4+Math.random()*.6),Math.random()*cv.clientHeight*.4)}
+    draw(t);
+  }
+  drawSpace(t);requestAnimationFrame(loop);
+}
+addEventListener('resize',()=>{sizeStars();sizeSpace()});
+hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();mx=(e.clientX-r.left)/r.width-.5;my=(e.clientY-r.top)/r.height-.5;hero.style.setProperty('--mx',(e.clientX-r.left)+'px');hero.style.setProperty('--my',(e.clientY-r.top)+'px')});
+hero.addEventListener('click',e=>{if(e.target.closest('a,button'))return;const r=hero.getBoundingClientRect();shoot(e.clientX-r.left+120,e.clientY-r.top-50)});
+
+/* page-wide star dust that drifts as you scroll */
+const sp=$('#space'),sx=sp.getContext('2d');let dust=[];
+function sizeSpace(){
+  const d=Math.min(2,devicePixelRatio||1);sp.width=innerWidth*d;sp.height=innerHeight*d;sx.setTransform(d,0,0,d,0,0);
+  dust=Array.from({length:Math.round(innerWidth*innerHeight/14000)},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,z:Math.random()*.8+.2,p:Math.random()*6.28}));
+}
+function drawSpace(t){
+  const w=innerWidth,h=innerHeight;sx.clearRect(0,0,w,h);
+  const col=getComputedStyle(document.documentElement).getPropertyValue('--accent').trim()||'#f5b12e';
+  sx.fillStyle=col;
+  for(const s of dust){
+    let y=(s.y-scrollY*s.z*.35)%h;if(y<0)y+=h;
+    sx.globalAlpha=(.25+.45*Math.abs(Math.sin(s.p+t/1500)))*s.z;
+    sx.beginPath();sx.arc(s.x,y,s.z*2,0,6.28);sx.fill();
+  }
+  sx.globalAlpha=1;
+}
+sizeSpace();
+if(reduce)drawSpace(0);else requestAnimationFrame(loop);
+
+/* scroll-linked motion */
+const skills=['SEO','Social media','Video editing','Web design','CRM automation','Graphic design','Email campaigns','Executive assistance','Landing pages','Google Analytics'];
+$('#ticker').innerHTML=Array(4).fill(skills.map(s=>`<span>${s}</span><i>✦</i>`).join('')).join('');
+let lastY=0;const rocket=$('#rocket'),heroText=$('.hero-text'),me=$('.me');
+function onScroll(){
+  const y=scrollY,max=document.documentElement.scrollHeight-innerHeight,p=max>0?y/max:0;
+  $('#progress').style.width=p*100+'%';
+  if(!rocket.classList.contains('launch'))rocket.style.top=(90+p*(innerHeight-190))+'px';
+  rocket.style.transform=y>lastY?'rotate(180deg)':'rotate(0deg)';
+  if(!reduce){
+    warp=Math.max(-40,Math.min(40,warp+(y-lastY)*.5));
+    if($('#home').classList.contains('on')&&y<900){heroText.style.transform=`translateY(${y*.28}px)`;heroText.style.opacity=Math.max(0,1-y/520);me.style.transform=`translateY(${y*.12}px)`}
+    $('#ticker').style.transform=`translateX(${-200-(y*.45)%600}px)`;
+  }
+  lastY=y;
+}
+addEventListener('scroll',onScroll,{passive:true});
+rocket.onclick=()=>{rocket.classList.add('launch');rocket.style.transform='rotate(0deg)';rocket.style.top='-90px';window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});setTimeout(()=>{rocket.classList.remove('launch');onScroll()},1000)};
+
+/* tilt cards toward the pointer */
+if(matchMedia('(hover:hover)').matches&&!reduce){
+  document.addEventListener('pointermove',e=>{
+    const c=e.target.closest('.svc article,.pack,.tile,.nums div');
+    $$('.tilt').forEach(o=>{if(o!==c){o.style.transform='';o.classList.remove('tilt')}});
+    if(!c||c.classList.contains('rv'))return;
+    const r=c.getBoundingClientRect(),dx=(e.clientX-r.left)/r.width-.5,dy=(e.clientY-r.top)/r.height-.5;
+    c.classList.add('tilt');c.style.transform=`perspective(700px) rotateY(${dx*9}deg) rotateX(${-dy*9}deg) translateY(-4px)`;
+  });
+}
+
+/* case studies */
+const cases=[
+ {tab:'SEO visibility',img:'shot3',title:'SEO search visibility and brand authority',how:'Local-interest content pages with custom HTML/CSS schema, built to rank for high-intent neighborhood queries in a saturated market.',stats:[['+62%','organic search clicks within 3 months'],['115K+','search impressions, a 60% increase'],['+1,447%','growth on one localized page that drove 232 clicks']]},
+ {tab:'Long-term growth',img:'shot4',title:'Sustainable long-term search growth',how:'Standardized the website\'s backend architecture: fixed structural page issues, improved layout responsiveness and cleaned up tracking codes.',stats:[['929','total clicks across 6 months'],['181K','impressions across the same 6 months'],['18.9','average position on competitive real estate terms']]},
+ {tab:'Video distribution',img:'shot5',title:'Algorithmic social media distribution',how:'Scripted, edited and engineered short-form video content designed to trigger the platform\'s distribution algorithm.',stats:[['490.2K','video views secured organically'],['77%','For You Page distribution'],['6K','direct shares, plus 9.9K likes and 709 comments']]},
+ {tab:'Follower growth',img:'shot6',title:'Targeted community and follower growth',how:'A consistent content scheduling pipeline paired with strong visual storytelling, converting cold viewers into active followers.',stats:[['1.3K','net new followers from a flat starting line'],['35–44+','key purchasing-power ages for real estate buyers'],['60 / 40','male to female audience split']]},
+ {tab:'Lead capture',img:'shot7',title:'High-conversion traffic-to-lead pipeline',how:'Designed, built and optimized landing page templates inside the CMS, with seamless lead capture and fast loading speeds.',stats:[['248','page views in a single business day'],['89','unique visitors that same day'],['CRM','registered buyer leads captured straight into the platform CRM']]}
+];
+function showCase(i){
+  const c=cases[i];
+  $$('#caseTabs button').forEach((b,k)=>b.setAttribute('aria-selected',k===i));
+  $('#casePanel').innerHTML=`<div><button class="shot" data-lb="${c.img}" data-cap="${c.title}. Verified workstation capture, domain redacted."><img src="${IMG[c.img]}" alt="Analytics screenshot for ${c.title}, domains redacted"></button><p class="note">Verified workstation capture, domain redacted. Select to enlarge.</p></div>
+  <div><h3>${c.title}</h3><p class="how">${c.how}</p><div class="stats">${c.stats.map(s=>`<div><b>${s[0]}</b><span>${s[1]}</span></div>`).join('')}</div></div>`;
+}
+$('#caseTabs').innerHTML=cases.map((c,i)=>`<button role="tab" data-case="${i}">${c.tab}</button>`).join('');
+$('#caseTabs').onclick=e=>{const b=e.target.closest('[data-case]');if(b)showCase(+b.dataset.case)};
+showCase(0);
+
+/* gallery */
+const work=[
+ ['web1','Web','Best Self coaching landing page'],['design1','Design','Registered nurse hiring poster'],['promo2','Promos','Property management promo banner'],['email2','Email','Coaching newsletter'],
+ ['design3','Design','Jammies and Chill event poster'],['web3','Web','Divorce 8 Week Courses e-book page'],['promo5','Promos','Homestay promo flyer'],['design2','Design','Full moon yoga and breathwork flyer'],
+ ['email1','Email','Opt-in form for a post-divorce values assessment'],['design6','Design','Post divorce group coaching post'],['web2','Web','Program registration page'],['promo1','Promos','Full moon yoga class poster'],
+ ['design4','Design','International Nurses Day greeting'],['promo3','Promos','Discount web banner'],['design5','Design','All level yoga class flyer']];
+const cats=['All','Web','Design','Promos','Email'];
+function showGal(cat){
+  $$('#filters button').forEach(b=>b.setAttribute('aria-pressed',b.textContent===cat));
+  $('#gal').innerHTML=work.filter(w=>cat==='All'||w[1]===cat).map((w,i)=>`<button class="pop" style="animation-delay:${i*45}ms" data-lb="${w[0]}" data-cap="${w[2]}"><img src="${IMG[w[0]]}" alt="${w[2]}" loading="lazy"></button>`).join('');
+}
+$('#filters').innerHTML=cats.map(c=>`<button>${c}</button>`).join('');
+$('#filters').onclick=e=>{if(e.target.tagName==='BUTTON')showGal(e.target.textContent)};
+showGal('All');
+
+/* lightbox */
+let lastFocus;
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-lb]');
+  if(b){lastFocus=b;$('#lbimg').src=IMG[b.dataset.lb];$('#lbimg').alt=b.dataset.cap||'';$('#lbcap').textContent=b.dataset.cap||'';$('#lb').classList.add('on');$('#lbx').focus();return}
+  if(e.target.id==='lb'||e.target.id==='lbx')closeLb();
+});
+function closeLb(){$('#lb').classList.remove('on');if(lastFocus)lastFocus.focus()}
+addEventListener('keydown',e=>{if(e.key==='Escape')closeLb()});
+
+/* package builder */
+const MAIL='JamesBryan.Prado@gmail.com';
+const options=['Social media management','Graphic design','Short-form video editing','Technical SEO and schema markup','Landing pages and websites','Email campaigns and automations','CRM automation and lead capture','Executive assistance'];
+$('#opts').innerHTML=options.map(o=>`<label><input type="checkbox" value="${o}">${o}</label>`).join('');
+function mail(subject,lines){return 'mailto:'+MAIL+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(lines.join('\n'))}
+$('#opts').onchange=()=>{
+  const p=$$('#opts input:checked').map(i=>i.value);
+  $('#sumTitle').textContent=p.length?p.length+(p.length===1?' service picked':' services picked'):'Nothing picked yet';
+  $('#sumList').innerHTML=p.map(x=>`<li>${x}</li>`).join('');
+  const b=$('#sumBtn');b.setAttribute('aria-disabled',p.length?'false':'true');
+  b.href=mail('Savers Package request',['Hi James,','','I would like a package with:',...p.map(x=>'- '+x),'','Please send me a quote.']);
+};
+document.addEventListener('click',e=>{const b=e.target.closest('[data-pack]');if(b)window.open(mail(b.dataset.pack+' inquiry',['Hi James,','','I am interested in the '+b.dataset.pack+'. Please send me the details and price.']),'_blank')});
+
+/* tools */
+const toolGroups={
+ 'CRM and funnels':['GoHighLevel','ClickFunnels','Kajabi','Lofty','Podia','Welder','Sprout'],
+ 'Websites':['WordPress','Elementor','Beaver Builder','Shopify','Amazon'],
+ 'Email':['Mailchimp','Active','MailerLite','Typeform'],
+ 'Social media':['Facebook','Instagram','LinkedIn','Twitter','TikTok','Meta Business','Hootsuite','Planoly'],
+ 'Design and video':['Canva','iDesign','Photoshop','Adobe Premiere Pro','CapCut','Filmora','Vimeo','HeyGen'],
+ 'Podcast and audio':['Audacity','Podcast.co','Spotify','Apple Podcasts'],
+ 'SEO and AI':['Semrush','ChatGPT','Perplexity','Grammarly'],
+ 'Projects and teams':['Trello','Blue','Slack','Basecamp','Deputy','Microsoft Office','Dropbox','Google Drive'],
+ 'Meetings and events':['Zoom','Google Meet','Skype','Loom','Calendly','Google Calendar','Meetup','Eventbrite'],
+ 'Real estate and booking':['Stellar MLS','Keller Williams Realty','Airbnb','Booking','Fnflagencymarketingsupport'],
+ 'Payments':['PayPal','Zelle','Venmo','Stripe']};
+let toolCat='All';
+function showTools(){
+  const q=$('#toolSearch').value.trim().toLowerCase();
+  const list=Object.entries(toolGroups).filter(([g])=>toolCat==='All'||g===toolCat).flatMap(([g,a])=>a).filter(x=>x.toLowerCase().includes(q));
+  $$('#toolCats button').forEach(b=>b.setAttribute('aria-pressed',b.textContent===toolCat));
+  $('#tools').innerHTML=list.length?list.map((x,i)=>`<span style="animation-delay:${Math.min(i,30)*18}ms">${x}</span>`).join(''):'<p class="note">No tool matches that search. Try a shorter word.</p>';
+}
+$('#toolCats').innerHTML=['All',...Object.keys(toolGroups)].map(c=>`<button>${c}</button>`).join('');
+$('#toolCats').onclick=e=>{if(e.target.tagName==='BUTTON'){toolCat=e.target.textContent;showTools()}};
+$('#toolSearch').oninput=showTools;showTools();
+document.addEventListener('click',async e=>{const b=e.target.closest('[data-copy]');if(!b)return;try{await navigator.clipboard.writeText(b.dataset.copy);toast('Skype ID copied')}catch(err){toast('Skype: '+b.dataset.copy)}});
+
+/* copy phone */
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),1800)}
+$('#copyPhone').onclick=async()=>{try{await navigator.clipboard.writeText('+63 967 225 5048');toast('Phone number copied')}catch(e){toast('Call or message +63 967 225 5048')}};
+
+go((location.hash||'#home').slice(1),false);onScroll();
+</script>
+</body>
+</html>

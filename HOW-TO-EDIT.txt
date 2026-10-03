@@ -1,0 +1,13 @@
+HOW TO EDIT YOUR PORTFOLIO
+
+1. Open index.html in a text editor (Notepad, or VS Code which is free).
+2. Use Ctrl+F to find the words you want to change, type the new words, and save.
+   - Look for the green comment lines such as "SAVERS PACKAGE PAGE" to find each page.
+   - Prices: search for "Price: add yours".
+   - Your tools list: search for "toolGroups".
+   - Case study numbers: search for "const cases".
+   - Work samples gallery: search for "const work".
+3. To change a picture, put the new picture in the images folder with the SAME file name.
+4. Upload the whole folder again (index.html plus the images folder) to your host.
+
+Keep index.html and the images folder together. The page needs both.
