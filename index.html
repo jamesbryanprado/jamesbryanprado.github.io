@@ -8,9 +8,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>James Bryan Prado | Virtual assistant and digital marketing</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&family=Livvic:wght@400;500;600;700&display=swap">
+<script>(function(){var h=new Date().getHours();document.documentElement.setAttribute("data-theme",(h>=6&&h<18)?"light":"dark")})();</script>
 <style>
 :root{
-  --bg:#f6ead2;--surface:#fffaf0;--line:#e0d0ad;--text:#0b1426;--muted:#4d566b;
+  --bg:#faf8f3;--surface:#ffffff;--line:#e7e0d2;--text:#0b1426;--muted:#4d566b;
   --accent:#b8391a;--teal:#1f6f66;--coral:#f2603f;--mustard:#f5b12e;--navy:#0b1426;--cream:#f6ead2;
   --shadow:0 18px 40px rgba(11,20,38,.14);
   box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
@@ -255,6 +256,47 @@ footer small{display:block;margin-top:2.5rem;color:#8e99b0}
 .lb p{color:#f6ead2;text-align:center;margin-top:.8rem;font-size:.95rem}
 .lb .x{position:absolute;right:1rem;top:calc(1rem + env(safe-area-inset-top,0px));background:var(--coral);color:var(--navy);border:0;width:44px;height:44px;border-radius:50%;font-size:1.4rem;font-weight:700}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ===== MORE CORAL: accent overrides ===== */
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--accent:#ff7a59}}
+:root[data-theme="dark"]{--accent:#ff7a59}
+::selection{background:var(--coral);color:var(--navy)}
+.top{border-bottom:2px solid var(--coral)}
+.hero h1 span:nth-child(2){color:var(--coral)}
+.hero::after{background:radial-gradient(420px circle at var(--mx,70%) var(--my,40%),rgba(242,96,63,.22),transparent 70%)}
+.block > h2::before,.two h2::before{content:"";display:block;width:56px;height:6px;border-radius:3px;background:var(--coral);margin-bottom:1rem}
+.nums{border-top:4px solid var(--coral)}
+.svc article:hover{box-shadow:inset 0 4px 0 var(--coral)}
+.tile:hover,.pack:hover,.opts label:hover{border-color:var(--coral)}
+.chips button:hover{border-color:var(--coral)}
+.chips button[aria-selected="true"],.chips button[aria-pressed="true"]{background:var(--coral);color:var(--navy);border-color:var(--coral)}
+.acc details[open] summary{color:var(--accent)}
+.search:focus{outline:none;border-color:var(--coral);box-shadow:0 0 0 3px rgba(242,96,63,.3)}
+.timeline div,.timeline div:nth-child(2),.timeline div:nth-child(3){border-color:var(--coral)}
+.pack.best{background:var(--coral);color:var(--navy);border-color:var(--coral)}
+.pack.best .tag{background:var(--navy);color:var(--cream)}
+.pack.best .btn{background:var(--navy);color:var(--cream)}
+.pack.best .btn:hover{background:#16233f}
+footer{background:var(--coral);color:var(--navy)}
+footer .btn{background:var(--navy);color:var(--cream)}
+footer .btn:hover{background:#16233f}
+footer .btn.ghost{background:transparent;color:var(--navy);border-color:var(--navy)}
+footer .btn.ghost:hover{background:rgba(11,20,38,.14)}
+footer small{color:#3d1508}
+footer :focus-visible{outline-color:var(--navy)}
+.jobs summary{font-size:clamp(1.35rem,3.2vw,2.1rem);padding:1.4rem 0}
+.jobs summary small{font-size:1.05rem;margin-top:.35rem}
+.tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem;align-items:start}
+.tgroup{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--coral);border-radius:16px;padding:1.2rem 1.2rem 1.3rem;animation:pop .45s cubic-bezier(.2,.8,.2,1) both}
+.tgroup h3{display:flex;align-items:center;justify-content:space-between;gap:.6rem;font-family:'Space Grotesk',sans-serif;font-size:1.15rem}
+.tgroup h3 small{font-family:'Livvic',sans-serif;font-size:.8rem;font-weight:700;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:.05rem .6rem;color:var(--muted)}
+.tgroup div{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.9rem}
+.tools .tgroup span{display:inline-flex;align-items:center;gap:.45rem;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:.25rem .75rem .25rem .25rem;font-size:.92rem;font-weight:600;animation:none}
+.tgroup i{font-style:normal;flex:none;width:24px;height:24px;border-radius:50%;background:var(--coral);color:var(--navy);display:grid;place-items:center;font-size:.75rem;font-weight:700}
+.pack .price{border:0;padding:0;opacity:1;display:flex;align-items:baseline;gap:.7rem;font-size:1rem}
+.pack .price span{font-family:'Livvic',sans-serif;font-weight:600;font-size:.95rem;color:var(--muted)}
+.pack .price b{font-size:2rem;line-height:1;letter-spacing:.06em;color:var(--accent)}
+.pack.best .price span,.pack.best .price b{color:var(--navy)}
 </style>
 </head>
 <body>
@@ -269,9 +311,9 @@ footer small{display:block;margin-top:2.5rem;color:#8e99b0}
       <button data-go="home">Home</button>
       <button data-go="services">Services</button>
       <button data-go="savers">Savers Package</button>
-      <button data-go="social">Skill Performance</button>
+      <button data-go="social">Skill Performances</button>
     </nav>
-    <button class="icon-btn" id="theme" aria-label="Switch between light and dark">&#9680;</button>
+    <button class="icon-btn" id="theme" aria-label="Switch between day and night look">&#9680;</button>
   </div>
 </header>
 
@@ -318,7 +360,7 @@ footer small{display:block;margin-top:2.5rem;color:#8e99b0}
 
   <div class="wrap block">
     <h2>Work experience</h2>
-    <div class="acc">
+    <div class="acc jobs">
       <details open><summary><span>CRM and digital operations specialist<small>2025 to 2026</small></span></summary>
         <ul><li>Managing CRM systems such as GoHighLevel and organizing lead pipelines.</li><li>Building workflow automations for lead nurturing, follow-ups and client communication.</li><li>Setting up SMS and email marketing campaigns for lead generation and customer engagement.</li><li>Generating and organizing leads from different marketing sources and importing them into CRM systems.</li><li>Managing backend business operations and improving workflow efficiency.</li><li>Executive and administrative support: scheduling, inbox management and reporting.</li><li>Digital marketing support: social media management, content coordination, blogging and newsletters.</li><li>Coordinating project workflows and helping businesses streamline operations for scalability.</li><li>Monitoring systems, automations and campaigns to keep daily operations smooth.</li></ul></details>
       <details><summary><span>Digital operations specialist<small>Lee Wright Coaching, 2022 to 2025</small></span></summary>
@@ -339,14 +381,6 @@ footer small{display:block;margin-top:2.5rem;color:#8e99b0}
       <div><b>High school</b><h3>Graduate</h3><p>Don Sergio Osmeña Sr. Memorial High School. Cooking and computer tech course.</p></div>
       <div><b>2010 to 2014</b><h3>Bachelor's degree, BSIT</h3><p>Asian College of Technology. Information Technology, four-year scholar (Pilot Section).</p></div>
     </div>
-  </div>
-
-  <div class="wrap block">
-    <h2>Tools I work with</h2>
-    <p class="lede">Type to search, or pick a group.</p>
-    <input class="search" id="toolSearch" type="search" placeholder="Search tools, for example GoHighLevel" aria-label="Search tools">
-    <div class="chips" id="toolCats"></div>
-    <div class="tools" id="tools" aria-live="polite"></div>
   </div>
 
   <div class="wrap block">
@@ -403,9 +437,9 @@ footer small{display:block;margin-top:2.5rem;color:#8e99b0}
     <h2>Savers Package</h2>
     <p class="lede">Bundle several services together and pay less than booking each one separately.</p>
     <div class="packs">
-      <div class="pack"><h3>Starter Saver</h3><p class="price">Price Level $</p><ul><li>Social media management and designs</li><li>Graphic design for posts and promos</li><li>Content scheduling</li></ul><button class="btn ghost" data-pack="Starter Saver">Ask about Starter Saver</button></div>
-      <div class="pack best"><span class="tag">Most complete for growth</span><h3>Growth Saver</h3><p class="price">Price Level $.$ </p><ul><li>Everything in Starter Saver</li><li>Technical SEO and schema markup</li><li>Short-form video editing</li><li>Email newsletters and opt-in forms</li></ul><button class="btn" data-pack="Growth Saver">Ask about Growth Saver</button></div>
-      <div class="pack"><h3>Full Operations Saver</h3><p class="price">Price Level $$</p><ul><li>Everything in Growth Saver</li><li>Landing pages and website updates</li><li>CRM automation and lead capture</li><li>Executive assistance</li></ul><button class="btn ghost" data-pack="Full Operations Saver">Ask about Full Operations Saver</button></div>
+      <div class="pack"><h3>Starter Saver</h3><p class="price"><span>Price level</span><b>$</b></p><ul><li>Social media management and designs</li><li>Graphic design for posts and promos</li><li>Content scheduling</li></ul><button class="btn ghost" data-pack="Starter Saver">Ask about Starter Saver</button></div>
+      <div class="pack best"><span class="tag">Most complete for growth</span><h3>Growth Saver</h3><p class="price"><span>Price level</span><b>$.$</b></p><ul><li>Everything in Starter Saver</li><li>Technical SEO and schema markup</li><li>Short-form video editing</li><li>Email newsletters and opt-in forms</li></ul><button class="btn" data-pack="Growth Saver">Ask about Growth Saver</button></div>
+      <div class="pack"><h3>Full Operations Saver</h3><p class="price"><span>Price level</span><b>$$</b></p><ul><li>Everything in Growth Saver</li><li>Landing pages and website updates</li><li>CRM automation and lead capture</li><li>Executive assistance</li></ul><button class="btn ghost" data-pack="Full Operations Saver">Ask about Full Operations Saver</button></div>
     </div>
   </div>
   <div class="wrap block">
@@ -422,10 +456,10 @@ footer small{display:block;margin-top:2.5rem;color:#8e99b0}
   </div>
 </section>
 
-<!-- ===== SOCIAL MEDIA PAGE: numbers and your profile links ===== -->
+<!-- ===== SKILL PERFORMANCES PAGE: results numbers, tools and your profile links ===== -->
 <section class="view" id="social">
   <div class="wrap block">
-    <h2>Social Media</h2>
+    <h2>Skill Performances</h2>
     <p class="lede">Scripted, edited and scheduled short-form content for one client account, grown from a flat starting line. All of it organic.</p>
     <div class="dash">
       <div class="tile"><b data-count="490.2" data-dec="1" data-suffix="K">490.2K</b><span>video views</span></div>
@@ -438,6 +472,13 @@ footer small{display:block;margin-top:2.5rem;color:#8e99b0}
       <div class="tile"><h3>See the analytics</h3><span>Screenshots from TikTok Studio, account redacted.</span><div class="chips"><button data-lb="shot5" data-cap="TikTok Studio overview, account redacted">Views</button><button data-lb="shot6" data-cap="TikTok Studio followers, account redacted">Followers</button></div></div>
     </div>
   </div>
+  <div class="wrap block">
+    <h2>Tools I worked with</h2>
+    <p class="lede">Grouped by what I use them for. Type to find one.</p>
+    <input class="search" id="toolSearch" type="search" placeholder="Search tools, for example GoHighLevel" aria-label="Search tools">
+    <div class="tools" id="tools" aria-live="polite"></div>
+  </div>
+
   <div class="wrap block">
     <h2>Feeds I have managed and designed</h2>
     <p class="lede">Select a feed to see it larger.</p>
@@ -527,11 +568,12 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(b
 $('#burger').onclick=()=>{const o=$('#menu').classList.toggle('open');$('#burger').setAttribute('aria-expanded',o)};
 
 /* theme */
-$('#theme').onclick=()=>{
-  const r=document.documentElement,cur=r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
-  const n=cur==='dark'?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',n)}catch(e){}
-};
-try{const t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}
+/* Theme follows the visitor's clock: 6am to 6pm is day (off-white), otherwise night (dark).
+   The round button in the menu switches it by hand for the rest of the visit. */
+let manualTheme=false;
+function autoTheme(){if(manualTheme)return;const h=new Date().getHours();document.documentElement.dataset.theme=(h>=6&&h<18)?'light':'dark'}
+autoTheme();setInterval(autoTheme,60000);
+$('#theme').onclick=()=>{manualTheme=true;const r=document.documentElement;r.dataset.theme=r.dataset.theme==='dark'?'light':'dark'};
 
 /* count-up, bars and scroll reveals */
 function countUp(el){
@@ -551,7 +593,7 @@ function setupMotion(root){
   $$('[data-count]',root).forEach(el=>{io.unobserve(el);io.observe(el)});
   $$('.bar i',root).forEach(el=>{el.style.width='0';io.unobserve(el);io.observe(el)});
   if(reduce)return;
-  const groups=[['.block > h2, .block > div > h2',''],['.lede, .two p, .logos, .chips, .case, .gal, .phones, .sum',''],['.nums div','zoom'],['.svc article','zoom'],['.pack','zoom'],['.tile','zoom'],['.timeline div',''],['.acc details','left'],['.socials > *','zoom'],['.search, .tools',''],['.opts label','left']];
+  const groups=[['.block > h2, .block > div > h2',''],['.lede, .two p, .logos, .chips, .case, .gal, .phones, .sum',''],['.nums div','zoom'],['.svc article','zoom'],['.pack','zoom'],['.tile','zoom'],['.timeline div',''],['.acc details','left'],['.socials > *','zoom'],['.search',''],['.opts label','left']];
   groups.forEach(([sel,kind])=>$$(sel,root).forEach(el=>{
     const i=[...el.parentElement.children].indexOf(el);
     el.classList.remove('in');el.classList.add('rv');if(kind)el.classList.add(kind);
@@ -565,12 +607,12 @@ function sizeStars(){
   const r=cv.getBoundingClientRect();if(!r.width)return;
   const d=Math.min(2,devicePixelRatio||1);cv.width=r.width*d;cv.height=r.height*d;cx.setTransform(d,0,0,d,0,0);
   const n=Math.round(r.width*r.height/3600);
-  stars=Array.from({length:n},()=>{const z=Math.random();return{x:Math.random()*r.width,y:Math.random()*r.height,z,s:z*1.8+.3,v:z*.22+.03,p:Math.random()*6.28,c:Math.random()<.12?'#f5b12e':Math.random()<.1?'#4fb3a3':'#f6ead2'}});
+  stars=Array.from({length:n},()=>{const z=Math.random();return{x:Math.random()*r.width,y:Math.random()*r.height,z,s:z*1.8+.3,v:z*.22+.03,p:Math.random()*6.28,c:Math.random()<.2?'#ff8a66':Math.random()<.1?'#4fb3a3':'#f6ead2'}});
   draw(0);
 }
 function shoot(x,y){shots.push({x,y,vx:-(7+Math.random()*4),vy:3+Math.random()*2,life:1})}
 function draw(t){
-  const w=cv.clientWidth,h=cv.clientHeight;cx.clearRect(0,0,w,h);
+  const w=cv.clientWidth,h=cv.clientHeight;cx.save();cx.setTransform(1,0,0,1,0,0);cx.clearRect(0,0,cv.width,cv.height);cx.restore();
   for(const s of stars){
     if(!reduce){s.x-=s.v;if(s.x<0)s.x=w;s.y-=warp*s.z*.6;if(s.y<0)s.y+=h;if(s.y>h)s.y-=h}
     const px=s.x-mx*s.z*40,py=s.y-my*s.z*26;
@@ -595,6 +637,8 @@ function loop(t){
   drawSpace(t);requestAnimationFrame(loop);
 }
 addEventListener('resize',()=>{sizeStars();sizeSpace()});
+if(window.ResizeObserver)new ResizeObserver(()=>{if(Math.abs(cv.height-cv.clientHeight*Math.min(2,devicePixelRatio||1))>2)sizeStars()}).observe(hero);
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(sizeStars);
 hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();mx=(e.clientX-r.left)/r.width-.5;my=(e.clientY-r.top)/r.height-.5;hero.style.setProperty('--mx',(e.clientX-r.left)+'px');hero.style.setProperty('--my',(e.clientY-r.top)+'px')});
 hero.addEventListener('click',e=>{if(e.target.closest('a,button'))return;const r=hero.getBoundingClientRect();shoot(e.clientX-r.left+120,e.clientY-r.top-50)});
 
@@ -718,15 +762,14 @@ const toolGroups={
  'Meetings and events':['Zoom','Google Meet','Skype','Loom','Calendly','Google Calendar','Meetup','Eventbrite'],
  'Real estate and booking':['Stellar MLS','Keller Williams Realty','Airbnb','Booking','Fnflagencymarketingsupport'],
  'Payments':['PayPal','Zelle','Venmo','Stripe']};
-let toolCat='All';
 function showTools(){
   const q=$('#toolSearch').value.trim().toLowerCase();
-  const list=Object.entries(toolGroups).filter(([g])=>toolCat==='All'||g===toolCat).flatMap(([g,a])=>a).filter(x=>x.toLowerCase().includes(q));
-  $$('#toolCats button').forEach(b=>b.setAttribute('aria-pressed',b.textContent===toolCat));
-  $('#tools').innerHTML=list.length?list.map((x,i)=>`<span style="animation-delay:${Math.min(i,30)*18}ms">${x}</span>`).join(''):'<p class="note">No tool matches that search. Try a shorter word.</p>';
+  const html=Object.entries(toolGroups).map(([g,a])=>{
+    const m=g.toLowerCase().includes(q)?a:a.filter(x=>x.toLowerCase().includes(q));
+    return m.length?`<section class="tgroup"><h3>${g}<small>${m.length}</small></h3><div>${m.map(x=>`<span><i>${x[0].toUpperCase()}</i>${x}</span>`).join('')}</div></section>`:'';
+  }).join('');
+  $('#tools').innerHTML=html||'<p class="note">No tool matches that search. Try a shorter word.</p>';
 }
-$('#toolCats').innerHTML=['All',...Object.keys(toolGroups)].map(c=>`<button>${c}</button>`).join('');
-$('#toolCats').onclick=e=>{if(e.target.tagName==='BUTTON'){toolCat=e.target.textContent;showTools()}};
 $('#toolSearch').oninput=showTools;showTools();
 document.addEventListener('click',async e=>{const b=e.target.closest('[data-copy]');if(!b)return;try{await navigator.clipboard.writeText(b.dataset.copy);toast('Skype ID copied')}catch(err){toast('Skype: '+b.dataset.copy)}});
 
